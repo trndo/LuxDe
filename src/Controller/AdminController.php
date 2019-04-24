@@ -14,9 +14,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @IsGranted("ROLE_ADMIN")
- */
+
 class AdminController extends AbstractController
 {
     /**
@@ -25,7 +23,7 @@ class AdminController extends AbstractController
     public function createArticle(EntityManagerInterface $em,Request $request,FileUploader $fileUploader)
     {
         $article = new Article();
-        $form = $this->createForm(ArticleType::class,$article);
+        $form = $this->createForm(ArticleType::class);
 
         $form->handleRequest($request);
 
@@ -38,8 +36,10 @@ class AdminController extends AbstractController
                         $data->setImagePath($imgName);
                     }
                 }catch (FileException $exception){
+
                     $this->addFlash('danger','Check your img!');
                     return $this->redirectToRoute('admin');
+
                 }
 
                 $em->persist($data);
@@ -74,7 +74,7 @@ class AdminController extends AbstractController
     {
         $article = $repository->findBy([],['id' => 'DESC']);
 
-        return $this->render('admin/journal.html.twig',[
+        return $this->render('admin/edit.html.twig',[
             'articles' => $article,
         ]);
     }
@@ -93,6 +93,7 @@ class AdminController extends AbstractController
                 $img = $data->getImagePath();
                 try {
                     if ($imgName = $fileUploader->upload($img)) {
+                        unlink($fileUploader->getUploadDir().$article->getImagePath());
                         $data->setImagePath($imgName);
                     }
                 }catch (FileException $exception){
@@ -107,7 +108,8 @@ class AdminController extends AbstractController
 
             }
         return $this->render('admin/home.html.twig',[
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'article' => $article
         ]);
     }
 }
