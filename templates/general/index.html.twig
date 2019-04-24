@@ -1,0 +1,340 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('general/css/main.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header class="header">
+        <div class="container-fluid">
+
+            <div class="nav-top">
+
+                <div class="row justify-content-between nav-top__background">
+
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <div class="nav-top__brand">
+                            <img src="{{ asset('general/img/logo_brand.png') }}" alt="brand">
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <div class="nav-top__menu">
+                            <nav class="navbar navbar-expand-lg navbar-dark ">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon">
+                                    </span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item">
+                                            <a href="{{ path('home') }}" class="nav-link">Главная</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ path('blog') }}" class="nav-link">Блог</a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav-top__menu-contacts">
+                                        <span>luxdeschool@gmail.com<br>+38(099)385-20-90</span>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="nav-top__general">
+                        <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                            <h3>Курсы</h3>
+                            <h1>Веб-дизайна</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-top__information">
+                    <div class="row">
+                        <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                            <p>Basic - основы Веб-дизайна за 8 недель</p>
+                        </div>
+                        <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                            <span>Киев</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-top__button">
+                    <div class="row justify-content-center">
+                        <div class="nav-top__button_text">
+                            <div class="col-lg-auto col-md-auto col-sm-auto col-auto align-self-center">
+                                <ul class="d-flex">
+                                    <li><img src="{{ asset('general/img/calendar.png') }}" alt="calendar"><span>16 занятий</span></li>
+                                    <li><img src="{{ asset('general/img/clock.png') }}" alt="clock"><span>2 раза в неделю</span></li>
+                                    <li><img src="{{ asset('general/img/play.png') }}" alt="play"><span>Апрель</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="nav-top__button_but">
+                            <div class="col-lg-auto col-md-auto col-sm-auto col-auto align-self-center">
+                                <button>Записаться</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="logo">
+        <div class="container-fluid">
+
+            <div class="row justify-content-center text-center">
+                <div class="logo__figma">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <img src="{{ asset('general/img/figma.png') }}" alt="figma">
+                        <p>Figma</p>
+                    </div>
+                </div>
+
+                <div class="logo__photoshop">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <img src="{{ asset('general/img/photoshop.png') }}" alt="Photoshop">
+                        <p>Photoshop</p>
+                    </div>
+                </div>
+
+                <div class="logo__illustrator">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <img src="{{ asset('general/img/illustrator.png') }}" alt="Illustrator">
+                        <p>Illustrator</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="logo__line">
+                    <hr>
+                </div>
+            </div>
+
+            <div class="logo__content">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-9 align-self-center">
+                        <p><b>Кто мы такие?</b></p>
+                        <span>LuxDe - школа веб-дизайна в городе Киеве. Наши специалисты научат тебя базовым знаниям в веб-дизайне. Создание логотипов, баннеров и других элементов сайта. Пора начать свой путь в профессию. Мы ждем тебя!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="description">
+        <div class="container-fluid">
+
+            <div class="row justify-content-center">
+                <div class="description__name">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <span>Курс <b>Basic Web-design</b></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="description__first-block">
+                    <div class=" col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <ul>
+                            <li>Длительность курса</li>
+                            <li>Количество уроков</li>
+                            <li>Время урока</li>
+                            <li>В группе</li>
+                            <li>По окончанию курса</li>
+                            <li><b>Цена курса</b></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="description__second-block">
+                    <div class=" col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <ul>
+                            <li>-</li>
+                            <li>-</li>
+                            <li>-</li>
+                            <li>-</li>
+                            <li>-</li>
+                            <li><b>-</b></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="description__three-block">
+                    <div class=" col-lg-auto col-md-auto col-sm-auto col-auto text-right">
+                        <ul>
+                            <li>8 недель.</li>
+                            <li>2 урока в неделю.</li>
+                            <li>2 часа.</li>
+                            <li>до 12 людей.</li>
+                            <li>дипломная робота</li>
+                            <li><b>7 500 грн</b></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="description__col-block">
+                    <div class="col-auto">
+                        <p>Длительность курса</p>
+                        <p class="special">-8 недель.</p>
+                        <p>Количество уроков</p>
+                        <p class="special">-2 урока в неделю.</p>
+                        <p>Время урока</p>
+                            <p class="special">-2 часа.</p>
+                            <p>В группе</p>
+                                <p class="special">-до 12 людей.</p>
+                                <p>По окончанию курса</p>
+                                <p class="special">-дипломная робота</p>
+                                <p><b>Цена курса</b></p>
+                                    <p class="special"><b>-7 500 грн</b></p>
+                    </div>
+                </div>
+
+                <div class="description__form">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto text-center">
+                        <p><b>Получить программу<br>курса</b></p>
+                        <input type="text" placeholder="E-mail"><br>
+                        <button><span>Отправить</span><img src="{{ asset('blog/img/arrow.png') }}" alt="logo"></button><br>
+                        <div>*На почтовый адресс будет отправлена полная программа курса “Basic Web-design”</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description__certificate">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <img src="{{ asset('general/img/medal.png') }}" alt="medal">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-6 tex-left">
+                        <span>Выпускники получают сертификат об окончании курса.От оценки зависит тип
+                            сертификата.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="information">
+        <div class="container-fluid">
+
+            <div class="row align-items-center">
+                <div class="information__headline">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <span>Почему</span> <b>LuxDe school?</b>
+                    </div>
+                </div>
+
+                <div class="information__hr">
+                    <hr>
+                </div>
+            </div>
+
+            <div class="information__content-first">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+                        <p>Конспекты лекций после каждой пары в доступе для группы
+                        </p>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-12">
+                        <p>Как правильно рекламировать себя и выставлять работы на разных площадках - отдельная пара по
+                            самопродвижению </p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                        <p>“Домашние презентации” - для повторения самостоятельно материала дома + домашнее задание</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="information__content-two">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+                        <p>Конспекты лекций после каждой пары в доступе для группы
+                        </p>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-12">
+                        <p>Как правильно рекламировать себя и выставлять работы на разных площадках - отдельная пара по
+                            самопродвижению </p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                        <p>“Домашние презентации” - для повторения самостоятельно материала дома + домашнее задание</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="notes">
+        <div class="container-fluid">
+
+            <div class="row align-items-center">
+                <div class="notese__image col-lg-auto col-md-auto col-sm-auto col-auto">
+                    <img src="{{ asset('general/img/mouse.png') }}" alt="mouse">
+                    <span><b>Техника</b> - Наличие собственного ноутбука и предустановленных программ которые мы вам
+                        выдадим. </span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container-fluid">
+
+            <div class="row justify-content-center align-items-center">
+
+                <div class="col-lg-auto order-lg-1 col-md-auto order-md-12 col-sm-auto order-sm-12 col-auto order-12">
+                    <div class="footer__contacts">
+                        <ul class="contact">
+                            <li><img src="{{ asset('general/img/phone-call.png') }}" alt="phone">+38(000)000-00-00</li>
+                            <li><img src="{{ asset('general/img/envelope.png') }}" alt="env">LuxDe@gmail.com</li>
+                            <li><img src="{{ asset('general/img/cord.png') }}" alt="cord">просп. Колбасы и томатов</li>
+                        </ul>
+                        <ul class="icons d-flex">
+                            <li><img src="{{ asset('general/img/instagram.png') }}" alt="inst"></li>
+                            <li><img src="{{ asset('general/img/facebook.png') }}" alt="facebook"></li>
+                            <li><img src="{{ asset('general/img/twitter.png') }}" alt="twitter"></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="col-lg-auto order-lg-12 col-md-auto order-md-1 col-sm-auto order-sm-1 col-auto order-1 text-center">
+                    <div class="footer__form">
+                        <span><b>Мы вам перезвоним</b></span><br>
+                        <span>Мест ограниченное количество</span><br>
+                        <input type="text" placeholder="Имя"><br>
+                        <input type="text" placeholder="Номер телефона"><br>
+                        <input type="text" placeholder="E-mail"><br>
+                        <button><span>Отправить</span><img src="{{ asset('general/img/arrow.png') }}" alt="arrow"></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="footer__down">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <span>2019 LuxDe school</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+{% endblock %}
