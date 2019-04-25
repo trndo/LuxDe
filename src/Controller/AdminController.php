@@ -2,15 +2,20 @@
 
 namespace App\Controller;
 
+use App\DTO\EditDTO;
 use App\Entity\Article;
 use App\Form\ArticleType;
+use App\Form\EditType;
 use App\Repository\ArticleRepository;
 use App\Repository\MailRepository;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
+use Gedmo\Mapping\Annotation\Slug;
+use Gedmo\Mapping\Annotation\SlugHandler;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -87,30 +92,39 @@ class AdminController extends AbstractController
      */
     public function editArticle(Request $request,EntityManagerInterface $em,Article $article,FileUploader $fileUploader)
     {
-        $form = $this->createForm(ArticleType::class,$article);
+        $dto = new EditDTO();
+        $dto->setName($article->getName())
+            ->setText($article->getText());
+
+        $form = $this->createForm(EditType::class,$dto);
 
         $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()){
+
                 $data = $form->getData();
-                $img = $data->getImagePath();
+                $img = $data->getFile();
                 try {
-                    if ($imgName = $fileUploader->upload($img)) {
+                    if ($img instanceof UploadedFile) {
+                        $imgName = $fileUploader->upload($img);
                         unlink($fileUploader->getUploadDir().$article->getImagePath());
-                        $data->setImagePath($imgName);
+                        $article->setImagePath($imgName);
                     }
                 }catch (FileException $exception){
                     $this->addFlash('danger','Check your img');
                     return $this->redirectToRoute('admin');
                 }
+                $article->setText($dto->getText())
+                    ->setName($dto->getName());
+
                 $em->flush();
 
                 $this->addFlash('success','Статья обновлена!');
 
-                return $this->redirectToRoute('edit');
+                return $this->redirectToRoute('edit',['slug' => $article->getSlug()]);
 
             }
-        return $this->render('admin/home.html.twig',[
+        return $this->render('admin/edit.html.twig',[
             'form' => $form->createView(),
             'article' => $article
         ]);
