@@ -115,6 +115,16 @@ dl {
   margin-bottom: 1rem;
 }
 
+.edit {
+  cursor: pointer;
+}
+
+.edit:hover{
+
+    color:gray;
+
+}
+
 ol ol,
 ul ul,
 ol ul,

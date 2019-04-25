@@ -37,9 +37,9 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Редактирование :</h6>
-          <a class="collapse-item" href="buttons.html">Создать статью</a>
-          <a class="collapse-item" href="cards.html">Редактировать статью</a>
-          <a class="collapse-item" href="cards.html">Удалить статью</a>
+          <a class="collapse-item" href="{{ path('create') }}">Создать статью</a>
+          <a class="collapse-item" href="{{ path('admin') }}">Редактировать статью</a>
+          <a class="collapse-item" href="{{ path('admin') }}">Удалить статью</a>
         </div>
       </div>
     </li>
@@ -86,19 +86,21 @@
           <table class="table table-striped">
             <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">№</th>
+              <th scope="col">Имя</th>
+              <th scope="col">Email</th>
+              <th scope="col">Номер телефона</th>
+              <th scope="col">Дата</th>
             </tr>
             </thead>
             <tbody>
             {% for message in messages %}
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <th scope="row">{{ mesage.id }}</th>
+              <td>{{ message.name }}</td>
+              <td>{{ message.email }}</td>
+              <td>{{ message.phoneNumber }}</td>
+              <td>{{ message.mesagedAt }}</td>
               {% endfor %}
             </tr>
             </tbody>

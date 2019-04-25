@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 
+
 class AdminController extends AbstractController
 {
     /**
@@ -67,6 +68,8 @@ class AdminController extends AbstractController
         ]);
     }
 
+
+
     /**
      * @Route("/admin", name="admin")
      */
@@ -74,7 +77,7 @@ class AdminController extends AbstractController
     {
         $article = $repository->findBy([],['id' => 'DESC']);
 
-        return $this->render('admin/edit.html.twig',[
+        return $this->render('admin/article.html.twig',[
             'articles' => $article,
         ]);
     }

@@ -93,4 +93,9 @@ class Article
 
         return $this;
     }
+
+    public function getImgPathWithFolder()
+    {
+        return '/uploads/'.$this->getImagePath();
+    }
 }
