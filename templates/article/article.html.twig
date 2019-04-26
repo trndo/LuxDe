@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Блог{% endblock %}
+
+{% block stylesheets %}
+    {{ parent () }}
+    <link rel="stylesheet" href="{{ asset('article/css/main.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header class="header">
+        <div class="container-fluid">
+
+            <div class="nav-top">
+
+                <div class="row nav-top__background">
+
+                    <div class="nav-top__brand mr-auto">
+                        <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                            <img src="{{ asset('article/img/logo_brand.png') }}" alt="brand">
+                        </div>
+                    </div>
+
+                    <div class="nav-top__menu">
+                        <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                            <nav class="navbar navbar-expand-lg navbar-dark ">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item">
+                                            <a href="{{ path('home') }}" class="nav-link">Главная</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ path('blog') }}" class="nav-link">Блог</a>
+                                        </li>
+                                    </ul>
+                                    <div class="nav-top__menu-contacts">
+                                        <span>luxdeschool@gmail.com<br>+38(099)385-20-90</span>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="content__image">
+                <div class="row justify-content-center">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <img src="{{ article.ImgPathWithFolder }}" alt="image" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+
+            <div class="content__text">
+                <div class="row justify-content-center">
+                    <div class="col-lg-11 col-md-11 col-sm-11 col-11">
+                        <h4>{{ article.name }}</h4>
+                        <p>{{ article.text }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content__button">
+                <div class="row justify-content-center">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                        <button ><b>Забронировать место</b><img src="{{ asset('article/img/arrow.png') }}" alt="button_logo"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-auto col-md-auto col-sm-auto col-auto text-center">
+                    <span>2019 LuxDe School</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

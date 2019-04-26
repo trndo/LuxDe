@@ -149,6 +149,9 @@ body {
     display: inline-block;
     margin-right: -50px;
   }
+  .navigation-wrap{
+    text-align: center;
+  }
   .navbar {
     padding: 5px 0px 5px 0px;
   }
