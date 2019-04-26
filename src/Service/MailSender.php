@@ -38,7 +38,7 @@ class MailSender
             ->setTo($data->getEmail())
             ->setBody(
                 $this->environment->render(
-                    'mail.html.twig'
+                    '_mail.html.twig'
                 )
                 ,
                 'text/html');
@@ -60,7 +60,7 @@ class MailSender
             ->setTo($email)
             ->setBody(
                 $this->environment->render(
-                    'mail.html.twig'
+                    '_mail.html.twig'
                 )
                 ,
                 'text/html');
