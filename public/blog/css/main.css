@@ -204,6 +204,9 @@ body {
   .nav-top__information div {
     margin-right: 0px
   }
+  .navigation-wrap{
+    justify-content: center;
+  }
 }
 
 

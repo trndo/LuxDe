@@ -29,7 +29,7 @@ class Mail
     /**
      * @ORM\Column(type="datetime")
      */
-    private $messagedAt;
+    private $messegedAt;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -38,7 +38,7 @@ class Mail
 
     public function __construct()
     {
-        $this->messagedAt = new \DateTime();
+        $this->messegedAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -73,12 +73,12 @@ class Mail
     
     public function getMessegedAt(): ?\DateTimeInterface
     {
-        return $this->messagedAt;
+        return $this->messegedAt;
     }
 
     public function setMessegedAt(\DateTimeInterface $messegedAt): self
     {
-        $this->messagedAt = $messegedAt;
+        $this->messegedAt = $messegedAt;
 
         return $this;
     }

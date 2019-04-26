@@ -28,6 +28,7 @@ class EditDTO
     public function setName($name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -47,6 +48,7 @@ class EditDTO
     public function setText($text): self
     {
         $this->text = $text;
+
         return $this;
     }
 
@@ -66,6 +68,7 @@ class EditDTO
     public function setFile(UploadedFile $file): self
     {
         $this->file = $file;
+
         return $this;
     }
 }

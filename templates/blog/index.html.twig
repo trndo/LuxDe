@@ -59,79 +59,33 @@
                 </div>
 
             </div>
+        </div>
     </header>
 
     <section class="content">
         <div class="container-fluid">
-
+        {% for article in articles %}
             <div class="content__block">
                 <div class="row first justify-content-around">
                     <div class="col-lg-auto col-md-auto col-sm-auto">
-                        <img class="image" src="{{ asset('blog/img/image.png') }}" alt="image">
+                        <img class="image" src="{{ article.ImgPathWithFolder }}" alt="image">
                     </div>
                     <div class="col-lg-auto col-md-auto col-sm-auto">
                         <div class="content__block-description">
-                            <b>Заголовок статьи</b>
-                            <p>Небольшое описание статьи - Дедуктивный метод решительно представляет собой бабувизм.
-                                Дискретность амбивалентно транспо Импликация.</p>
+                            <b>{{ article.name }}</b>
+                            <p>{{ article.text|truncate(150)}}</p>
                         </div>
                         <div class="content__block-button">
-                            <button><b>Подробнее</b><img src="{{ asset('blog/img/arrow.png') }}" alt="button_logo"></button>
+                            <button onclick="window.location.href='{{ path('article',{slug: article.slug}) }}'"><b>Подробнее</b><img src="{{ asset('blog/img/arrow.png') }}" alt="button_logo"></button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="content__block">
-                <div class="row two justify-content-around">
-                    <div class="col-lg-auto col-md-auto col-sm-auto">
-                        <img class="image" src="{{ asset('blog/img/image.png') }}" alt="image">
-                    </div>
-                    <div class="col-lg-auto col-md-auto col-sm-auto">
-                        <div class="content__block-description">
-                            <b>Заголовок статьи</b>
-                            <p>Небольшое описание статьи - Дедуктивный метод решительно представляет собой бабувизм.
-                                Дискретность амбивалентно транспо Импликация.</p>
-                        </div>
-                        <div class="content__block-button">
-                            <button><b>Подробнее</b><img src="{{ asset('article/img/arrow.png') }}" alt="button_logo"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content__block">
-                <div class="row three justify-content-around">
-                    <div class="col-lg-auto col-md-auto col-sm-auto">
-                        <img class="image" src="{{ asset('blog/img/image.png') }}" alt="image">
-                    </div>
-                    <div class="col-lg-auto col-md-auto col-sm-auto">
-                        <div class="content__block-description">
-                            <b>Заголовок статьи</b>
-                            <p>Небольшое описание статьи - Дедуктивный метод решительно представляет собой бабувизм.
-                                Дискретность амбивалентно транспо Импликация.</p>
-                        </div>
-                        <div class="content__block-button">
-                            <button><b>Подробнее</b><img src="{{ asset('blog/img/arrow.png') }}" alt="button_logo"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content__block">
-                <div class="row four justify-content-around">
-                    <div class="col-lg-auto col-md-auto col-sm-auto">
-                        <img class="image" src="{{ asset('blog/img/image.png') }}" alt="image">
-                    </div>
-                    <div class="col-lg-auto col-md-auto col-sm-auto">
-                        <div class="content__block-description">
-                            <b>Заголовок статьи</b>
-                            <p>Небольшое описание статьи - Дедуктивный метод решительно представляет собой бабувизм.
-                                Дискретность амбивалентно транспо Импликация.</p>
-                        </div>
-                        <div class="content__block-button">
-                            <button><b>Подробнее</b><img src="{{ asset('blog/img/arrow.png') }}" alt="button_logo"></button>
-                        </div>
+        {% endfor %}
+            <div class="row justify-content-around">
+                <div class="col-lg-auto col-md-auto col-sm-auto">
+                    <div class="navigation">
+                        {{ knp_pagination_render(articles) }}
                     </div>
                 </div>
             </div>
