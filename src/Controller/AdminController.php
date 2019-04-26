@@ -73,8 +73,6 @@ class AdminController extends AbstractController
         ]);
     }
 
-
-
     /**
      * @Route("/admin", name="admin")
      */
@@ -121,12 +119,30 @@ class AdminController extends AbstractController
 
                 $this->addFlash('success','Статья обновлена!');
 
-                return $this->redirectToRoute('edit',['slug' => $article->getSlug()]);
+                return $this->redirectToRoute('admin');
 
             }
         return $this->render('admin/edit.html.twig',[
             'form' => $form->createView(),
             'article' => $article
         ]);
+    }
+
+    /**
+     * @Route("/admin/delete/{slug}", name="delete")
+     */
+    public function deleteArticle(Article $article,EntityManagerInterface $em,FileUploader $fileUploader)
+    {
+
+        $em->remove($article);
+
+        if(file_exists($fileUploader->getUploadDir().$article->getImagePath())){
+            unlink($fileUploader->getUploadDir().$article->getImagePath());
+        }
+
+        $em->flush();
+
+        return $this->redirectToRoute('admin');
+
     }
 }

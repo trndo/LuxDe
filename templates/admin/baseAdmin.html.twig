@@ -16,6 +16,7 @@
 
         <!-- Custom styles for this template-->
         <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+        <link  href="{{ asset('admin/css/article-admin.css') }}" rel="stylesheet">
     {% endblock %}
 </head>
 <body id="page-top">
@@ -38,11 +39,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            bsCustomFileInput.init()
-        })
-    </script>
+    <script src="{{ asset('admin/js/file.js') }}"></script>
 {% endblock %}
 
 </body>

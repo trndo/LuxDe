@@ -26,14 +26,14 @@ class MailSender
 
     public function sendMessage(Mail $data)
     {
-        $message1 = (new \Swift_Message('Lux-de Order'))
+        $messToMe = (new \Swift_Message('Lux-De Order'))
             ->setFrom('luxdeschool@gmail.com')
             ->setTo('luxdeschool@gmail.com')
             ->setBody(
                 $data->getName().'<br>'.$data->getEmail().'<br>'.$data->getPhoneNumber().'<br>'.$data->getMessage(),
                 'text/html'
             );
-        $message2 = (new \Swift_Message('Web-studio OctoWice'))
+        $messToCustomer = (new \Swift_Message('Lux-De School'))
             ->setFrom('luxdeschool@gmail.com')
             ->setTo($data->getEmail())
             ->setBody(
@@ -42,7 +42,30 @@ class MailSender
                 )
                 ,
                 'text/html');
+        $this->mailer->send($messToMe);
+        $this->mailer->send($messToCustomer);
+    }
+
+    public function sendFastMessage(string $email)
+    {
+        $message1 = (new \Swift_Message('Lux-De Order'))
+            ->setFrom('luxdeschool@gmail.com')
+            ->setTo('luxdeschool@gmail.com')
+            ->setBody(
+                "Пользователь $email отправил сообщение. Отпишите ему!",
+                'text/html'
+            );
+        $message2 = (new \Swift_Message('Lux-De School'))
+            ->setFrom('luxdeschool@gmail.com')
+            ->setTo($email)
+            ->setBody(
+                $this->environment->render(
+                    'mail.html.twig'
+                )
+                ,
+                'text/html');
         $this->mailer->send($message1);
         $this->mailer->send($message2);
+
     }
 }

@@ -2,11 +2,6 @@
 
 {% block title%}Admin Panel{% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link  href="{{ asset('admin/css/article-admin.css') }}" rel="stylesheet">
-{% endblock %}
-
 {% block body%}
 
     <div id="wrapper">
@@ -108,8 +103,8 @@
                                 <td>{{ article.updatedAt|ago }}</td>
                                 <td><img class="admin-img" src="{{ article.ImgPathWithFolder }}" alt="articleImage"></td>
                                 <td>
-                                    <i class="fas fa-pencil-alt hov" onclick="window.location.href='{{ path('edit',{slug: article.slug}) }}'"></i>&nbsp;
-                                    <i class="fas fa-trash-alt hov" onclick="if(confirm('Вы хотите удалить эту статью?')) window.location.href='{{ path('home',{ slug: article.slug}) }}'"></i>
+                                    <i class="fas fa-pencil-alt hov" onclick="if(confirm('Вы хотите обновить эту статью ?'))window.location.href='{{ path('edit',{slug: article.slug}) }}'"></i>&nbsp;
+                                    <i class="fas fa-trash-alt hov" onclick="if(confirm('Вы хотите удалить эту статью ?')) window.location.href='{{ path('delete',{ slug: article.slug}) }}'"></i>
                                 </td>
                                 {% endfor %}
                             </tr>
