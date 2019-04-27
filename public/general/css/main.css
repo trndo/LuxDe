@@ -2,7 +2,9 @@ header {
   display: fixed;
   background: linear-gradient(115.94deg, #31324D 5.68%, #9A5A98 97.96%);
 }
-
+html {
+  scroll-behavior: smooth;
+}
 button:active, button:focus, input:active, input:focus {
   outline: none;
 }

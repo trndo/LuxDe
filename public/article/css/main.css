@@ -1,6 +1,9 @@
 header {
   background: linear-gradient(164.33deg, #31324D 3.61%, #E979D0 79.48%);
 }
+html {
+  scroll-behavior: smooth;
+}
 
 .nav-top {
   padding-bottom: 6px;
