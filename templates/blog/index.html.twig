@@ -73,7 +73,7 @@
                     <div class="col-lg-auto col-md-auto col-sm-auto">
                         <div class="content__block-description">
                             <b>{{ article.name }}</b>
-                            <p>{{ article.text|truncate(150)}}</p>
+                            <p>{{ article.text|truncate(160)}}</p>
                         </div>
                         <div class="content__block-button">
                             <button onclick="window.location.href='{{ path('article',{slug: article.slug}) }}'"><b>Подробнее</b><img src="{{ asset('blog/img/arrow.png') }}" alt="button_logo"></button>
@@ -82,15 +82,14 @@
                 </div>
             </div>
         {% endfor %}
-            <div class="row justify-content-center">
-                <div class="col-lg-auto col-md-auto col-sm-auto">
-                    <div class="navigation">
-                        {{ knp_pagination_render(articles) }}
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
+
+    <div class="navigation-wrap">
+        <div class="navigation">
+            {{ knp_pagination_render(articles) }}
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">

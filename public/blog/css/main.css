@@ -83,6 +83,35 @@ body {
 .content__block-button button img {
   margin-left: 20px;
 }
+.navigation-wrap{
+  display: flex;
+  justify-content:center;
+
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #212529;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.page-item.active .page-link{
+  z-index: 1;
+  color: #fff;
+  background-color: #9b2aff;
+  border-color: #9b2aff;
+}
+.page-link:focus, .page-link:hover {
+
+  color: #fff;
+  text-decoration: none;
+  background-color: #af87ff;
+  border-color: #af87ff;
+}
 
 .footer {
   background: #252525;
@@ -92,6 +121,7 @@ body {
   color: #ffffff;
   font-size: 18px;
 }
+
 
 @media screen and (max-width: 992px) {
   .nav-top__background {
@@ -148,9 +178,6 @@ body {
     text-align: right;
     display: inline-block;
     margin-right: -50px;
-  }
-  .navigation-wrap{
-    text-align: center;
   }
   .navbar {
     padding: 5px 0px 5px 0px;
