@@ -17,7 +17,7 @@ class MainPageController extends AbstractController
      */
     public function home()
     {
-        return $this->render('general/index.html.twig');
+        return $this->render('general/general.html.twig');
 
     }
 

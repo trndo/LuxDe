@@ -1,3 +1,10 @@
+let formValidFast = false;
+let formValid = {
+    full: false,
+    phone: false,
+    name: false
+};
+
 function sendMail(action) {
     $.ajax({
         method : 'POST',
@@ -13,10 +20,67 @@ function sendMail(action) {
     })
 }
 $(document).ready(function () {
+   $('#phone').mask('+38(000)000-00-00', {placeholder: "+38(___)___-__-__"});
    $('#sendFast').click(function () {
-       sendMail('/sendFast')
+       if (formValidFast) {
+           sendMail('/sendFast');
+           $('#fast').val('');
+       }
    });
     $('#send').click(function () {
-        sendMail('/send')
+        if (formValid.name && formValid.phone && formValid.full) {
+            sendMail('/send')
+            $('#name').val('');
+            $('#phone').val('');
+            $('#full').val('');
+        }
+    });
+    $('#fast').blur(function () {
+        let email = $(this).val();
+
+        if (!/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/.test(email)){
+            $(this).addClass('invalid');
+            $('.emailFast').css('display','block');
+        } else {
+            $(this).removeClass('invalid');
+            $('.emailFast').css('display','none');
+            formValidFast = true;
+        }
+    });
+    $('#name').blur(function () {
+        let name = $(this).val();
+
+        if (!name){
+            $(this).addClass('invalid');
+            $('#invName').css('display','block');
+        } else {
+            $(this).removeClass('invalid');
+            $('#invName').css('display','none');
+            formValid.name = true;
+        }
+    });
+    $('#phone').blur(function () {
+        let phone = $(this).val();
+
+        if (!phone){
+            $(this).addClass('invalid');
+            $('#invPhone').css('display','block');
+        } else {
+            $(this).removeClass('invalid');
+            $('#invPhone').css('display','none');
+            formValid.phone = true;
+        }
+    });
+    $('#full').blur(function () {
+        let full = $(this).val();
+
+        if (!/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/.test(full)){
+            $(this).addClass('invalid');
+            $('#invEmail').css('display','block');
+        } else {
+            $(this).removeClass('invalid');
+            $('#invEmail').css('display','none');
+            formValid.full = true;
+        }
     });
 });

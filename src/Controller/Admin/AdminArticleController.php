@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\DTO\EditDTO;
 use App\Entity\Article;
@@ -10,8 +10,6 @@ use App\Repository\ArticleRepository;
 use App\Repository\MailRepository;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
-use Gedmo\Mapping\Annotation\Slug;
-use Gedmo\Mapping\Annotation\SlugHandler;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -23,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @IsGranted("ROLE_ADMIN")
  */
-class AdminController extends AbstractController
+class AdminArticleController extends AbstractController
 {
     /**
      * @Route("/admin/create", name="create")
@@ -60,30 +58,6 @@ class AdminController extends AbstractController
 
         return $this->render('admin/home.html.twig',[
             'form' => $form->createView()
-        ]);
-    }
-
-    /**
-     * @Route("/admin/mail", name="mail")
-     */
-    public function showMails(MailRepository $repository)
-    {
-        $messages = $repository->findBy([],['id' => 'DESC']);
-
-        return $this->render('admin/journal.html.twig',[
-            'messages' => $messages,
-        ]);
-    }
-
-    /**
-     * @Route("/admin", name="admin")
-     */
-    public function showArticles(ArticleRepository $repository)
-    {
-        $article = $repository->findBy([],['id' => 'DESC']);
-
-        return $this->render('admin/article.html.twig',[
-            'articles' => $article,
         ]);
     }
 

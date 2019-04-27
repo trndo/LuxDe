@@ -33,7 +33,7 @@ class ArticleController extends AbstractController
             1
         );
 
-        return $this->render('blog/index.html.twig',[
+        return $this->render('blog/general.html.twig',[
             'articles' => $articles
         ]);
     }

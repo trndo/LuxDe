@@ -62,7 +62,12 @@ ul li {
   padding-right: 0px;
   background: rgba(225, 99, 194, 0.42);
 }
-
+.invalid{
+  border: solid 2px red;
+}
+.emailFast, #invEmail, #invName, #invPhone{
+  display: none;
+}
 .description {
   background: linear-gradient(128.4deg, #31324D 4.99%, #E979D0 45.47%);
 }
