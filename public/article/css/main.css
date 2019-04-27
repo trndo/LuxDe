@@ -4,6 +4,14 @@ header {
 html {
   scroll-behavior: smooth;
 }
+blockquote {
+  overflow: hidden;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  margin-left: 0;
+  font-style: italic;
+  border-left: 5px solid #ccc;
+}
 
 .nav-top {
   padding-bottom: 6px;

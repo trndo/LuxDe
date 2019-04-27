@@ -20,7 +20,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-
+/**
+ * @IsGranted("ROLE_ADMIN")
+ */
 class AdminController extends AbstractController
 {
     /**
@@ -28,7 +30,6 @@ class AdminController extends AbstractController
      */
     public function createArticle(EntityManagerInterface $em,Request $request,FileUploader $fileUploader)
     {
-        $article = new Article();
         $form = $this->createForm(ArticleType::class);
 
         $form->handleRequest($request);

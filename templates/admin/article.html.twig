@@ -99,7 +99,7 @@
                             <tr>
                                 <th scope="row">{{ article.id }}</th>
                                 <td>{{ article.name }}</td>
-                                <td>{{ article.text }}</td>
+                                <td>{{ article.text|raw }}</td>
                                 <td>{{ article.updatedAt|ago }}</td>
                                 <td><img class="admin-img" src="{{ article.ImgPathWithFolder }}" alt="articleImage"></td>
                                 <td>

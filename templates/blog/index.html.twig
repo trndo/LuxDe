@@ -73,7 +73,7 @@
                     <div class="col-lg-auto col-md-auto col-sm-auto">
                         <div class="content__block-description">
                             <b>{{ article.name }}</b>
-                            <p>{{ article.text|truncate(160)}}</p>
+                            <p >{{ article.text|striptags|truncate(160)}}</p>
                         </div>
                         <div class="content__block-button">
                             <button onclick="window.location.href='{{ path('article',{slug: article.slug}) }}'"><b>Подробнее</b><img src="{{ asset('blog/img/arrow.png') }}" alt="button_logo"></button>

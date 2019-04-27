@@ -8,7 +8,7 @@ security:
             memory:
                 users:
                     admin:
-                        password:
+                        password: '%env(ADMIN_PASSWORD)%'
                         roles: 'ROLE_ADMIN'
     firewalls:
         dev:
@@ -17,7 +17,7 @@ security:
         main:
             anonymous: true
 
-             http_basic: true
+            http_basic: true
 
             # form_login: true
             # https://symfony.com/doc/current/security/form_login_setup.html
