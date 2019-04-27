@@ -52,7 +52,7 @@
     </div>
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-      <a class="nav-link" href="">
+      <a class="nav-link" href="{{ path('mail') }}">
         <i class="fas fa-fw fa-table"></i>
         <span>Посмотреть журнал</span></a>
     </li>
@@ -96,11 +96,11 @@
             <tbody>
             {% for message in messages %}
             <tr>
-              <th scope="row">{{ mesage.id }}</th>
+              <th scope="row">{{ message.id }}</th>
               <td>{{ message.name }}</td>
               <td>{{ message.email }}</td>
               <td>{{ message.phoneNumber }}</td>
-              <td>{{ message.mesagedAt }}</td>
+              <td>{{ message.messagedAt|date('Y:m:d H:i:s') }}</td>
               {% endfor %}
             </tr>
             </tbody>

@@ -24,12 +24,14 @@ class MainPageController extends AbstractController
     /**
      * @Route("/send", name="send")
      */
-    public function send(Request $request,EntityManagerInterface $em,Mail $mail,MailSender $mailSender)
+    public function send(Request $request,EntityManagerInterface $em,MailSender $mailSender)
     {
+        $mail = new Mail();
         $name = $request->request->get('name');
         $email = $request->request->get('email');
         $phone = $request->request->get('phone');
 
+        if ($name && $email && $phone) {
             $data = $mail->setName($name)
                 ->setPhoneNumber($phone)
                 ->setEmail($email);
@@ -39,21 +41,26 @@ class MainPageController extends AbstractController
 
             $mailSender->sendMessage($data);
 
+            return new JsonResponse([
+                'mail' => $email,
+            ]);
+        }
+
+        return new JsonResponse([
+            'error' => 'Invalid data'
+        ],500);
+    }
+
+    /**
+     * @Route("/sendFast", name="sendFast")
+     */
+    public function sendFast(MailSender $mailSender,Request $request)
+    {
+        $email = $request->request->get('email');
+        $mailSender->sendFastMessage($email);
+
         return new JsonResponse([
             'mail' => $email
         ]);
     }
-
-//    /**
-//     * @Route("/sendFast", name="sendFast")
-//     */
-//    public function sendFast(MailSender $mailSender,Request $request)
-//    {
-//        $email = $request->request->get('email');
-//        $mailSender->sendFastMessage($email);
-//
-//        return new JsonResponse([
-//            'mail' => $email
-//        ]);
-//    }
 }

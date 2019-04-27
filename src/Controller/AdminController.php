@@ -30,7 +30,8 @@ class AdminController extends AbstractController
      */
     public function createArticle(EntityManagerInterface $em,Request $request,FileUploader $fileUploader)
     {
-        $form = $this->createForm(ArticleType::class);
+        $article = new Article();
+        $form = $this->createForm(ArticleType::class,$article);
 
         $form->handleRequest($request);
 

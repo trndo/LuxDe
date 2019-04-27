@@ -22,14 +22,14 @@ class Mail
     private $name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=150)
      */
     private $phoneNumber;
     
     /**
      * @ORM\Column(type="datetime")
      */
-    private $messegedAt;
+    private $messagedAt;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -38,7 +38,7 @@ class Mail
 
     public function __construct()
     {
-        $this->messegedAt = new \DateTime();
+        $this->messagedAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -71,14 +71,14 @@ class Mail
     }
 
     
-    public function getMessegedAt(): ?\DateTimeInterface
+    public function getMessagedAt(): ?\DateTimeInterface
     {
-        return $this->messegedAt;
+        return $this->messagedAt;
     }
 
-    public function setMessegedAt(\DateTimeInterface $messegedAt): self
+    public function setMessagedAt(\DateTimeInterface $messagedAt): self
     {
-        $this->messegedAt = $messegedAt;
+        $this->messagedAt = $messagedAt;
 
         return $this;
     }

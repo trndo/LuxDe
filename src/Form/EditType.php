@@ -17,8 +17,8 @@ class EditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name',TextType::class,[
-            'label' => false,
-            'required' => false
+                'label' => false,
+                'required' => false
             ])
             ->add('text',TextareaType::class,[
                 'label' => false,
