@@ -6,49 +6,34 @@ namespace App\Controller\Admin;
 
 use App\Entity\Settings;
 use App\Form\SettingsType;
+use App\Repository\SettingsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @IsGranted("ROLE_ADMIN")
+ */
 class SettingsController extends AbstractController
 {
     /**
      * @Route("/admin/settings", name="settings")
      */
-    public function addSettings(Request $request,EntityManagerInterface $em)
+    public function editSettings(Request $request,EntityManagerInterface $em, SettingsRepository $repository)
     {
-        $form = $this->createForm(SettingsType::class);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
-            $data = $form->getData();
-
-            $em->persist($data);
-            $em->flush();
-
-            $this->redirectToRoute('admin');
-        }
-
-        return $this->render('admin/settings.html.twig',[
-            'form' => $form->createView()
-        ]);
-    }
-
-    /**
-     * @Route("/admin/settings/add", name="edit_settings")
-     */
-    public function editSettings(Request $request,EntityManagerInterface $em,Settings $settings)
-    {
+        $settings = $repository->findOneBy([],['id' => 'DESC']);
         $form = $this->createForm(SettingsType::class,$settings);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
 
+            $data = $form->getData();
 
+            $em->persist($data);
             $em->flush();
 
-            $this->redirectToRoute('admin');
         }
 
         return $this->render('admin/settings.html.twig',[

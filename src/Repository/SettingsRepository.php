@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Setings;
+use App\Entity\Settings;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Setings|null find($id, $lockMode = null, $lockVersion = null)
- * @method Setings|null findOneBy(array $criteria, array $orderBy = null)
- * @method Setings[]    findAll()
- * @method Setings[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Settings|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Settings|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Settings[]    findAll()
+ * @method Settings[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class SettingsRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Setings::class);
+        parent::__construct($registry, Settings::class);
     }
 
     // /**
-    //  * @return Setings[] Returns an array of Setings objects
+    //  * @return Settings[] Returns an array of Settings objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class SettingsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Setings
+    public function findOneBySomeField($value): ?Settings
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')

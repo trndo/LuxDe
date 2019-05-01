@@ -17,7 +17,7 @@
 
                     <div class="nav-top__brand">
                         <div class="col-lg-auto col-md-auto">
-                            <img src="{{ asset('blog/img/logo_brand.png') }}" alt="brand">
+                            <img src="{{ asset('blog/img/logo_brand.png') }}" alt="brand" onclick="window.location.href='{{ path('home') }}'">
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@
                                         </li>
                                     </ul>
                                     <div class="nav-top__menu-contacts">
-                                        <span>luxdeschool@gmail.com<br>+38(099)385-20-90</span>
+                                        <span>{{ settings.email }}<br>{{ settings.phone }}</span>
                                     </div>
                                 </div>
                             </nav>

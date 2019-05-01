@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Mail;
+use App\Entity\Settings;
+use App\Repository\SettingsRepository;
 use App\Service\MailSender;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,9 +17,13 @@ class MainPageController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home()
+    public function home(SettingsRepository $repository)
     {
-        return $this->render('general/general.html.twig');
+
+        $settings = $repository->findOneBy([],['id' => 'DESC']);
+        return $this->render('general/general.html.twig',[
+                'settings' => $settings
+        ]);
 
     }
 
