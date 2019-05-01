@@ -6,6 +6,7 @@ let formValid = {
 };
 
 function sendMail(action) {
+    $('#preloader').show();
     $.ajax({
         method : 'POST',
         url : action,
@@ -14,7 +15,11 @@ function sendMail(action) {
             name: document.getElementById('name').value,
             phone: document.getElementById('phone').value
         },
+        error: function(error){
+            alert('Уппс..Что-то пошло не так.Порпробуйте позже.');
+        },
         success: function (res) {
+            $('#preloader').hide();
             alert('Ваше сообщение отправлено '+res.mail);
         }
     })

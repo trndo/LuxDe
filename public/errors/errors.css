@@ -1,3 +1,9 @@
+body {
+    background: linear-gradient(115.94deg, #31324D 5.68%, #9A5A98 97.96%);
+}
+html {
+    scroll-behavior: smooth;
+}
 .Err { margin: 30px; max-width: 600px; text-align: center;}
 .Mess {
     margin-top: 20%;
@@ -22,19 +28,13 @@
     padding: 10px;
     text-decoration: none;
 }
-
+.pointer{
+    cursor: pointer;
+}
 .MpB:hover {
     color: black !important;
     text-decoration: none;
 }
-
-body {
-    background: linear-gradient(115.94deg, #31324D 5.68%, #9A5A98 97.96%);
-}
-html {
-    scroll-behavior: smooth;
-}
-
 .nav-top__menu ul li, .nav-top a, .nav-top span {
     list-style-type: none;
     color: #ffffff;
@@ -88,63 +88,6 @@ html {
     margin-top: 140px;
 }
 
-.content {
-    margin-top: 165px;
-}
-.content__block {
-    margin-bottom: 40px;
-    padding: 17px;
-    background: #ffffff;
-    border-radius: 15px
-}
-.content__block p {
-    margin-left: 10px;
-    margin-top: 45px;
-    width: 400px;
-}
-.content__block span {
-    margin-top: 37px;
-}
-.content__block-description {
-    margin-top: 20px;
-}
-.content__block-button button {
-    margin-left: 200px;
-    margin-top: 50px;
-    padding: 10px 20px 10px 40px;
-}
-.content__block-button button img {
-    margin-left: 20px;
-}
-.navigation-wrap{
-    display: flex;
-    justify-content:center;
-
-}
-.page-link {
-    position: relative;
-    display: block;
-    padding: .5rem .75rem;
-    margin-left: -1px;
-    line-height: 1.25;
-    color: #212529;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-}
-
-.page-item.active .page-link{
-    z-index: 1;
-    color: #fff;
-    background-color: #9b2aff;
-    border-color: #9b2aff;
-}
-.page-link:focus, .page-link:hover {
-
-    color: #fff;
-    text-decoration: none;
-    background-color: #af87ff;
-    border-color: #af87ff;
-}
 
 .footer {
     padding: 40px 0;
@@ -200,9 +143,7 @@ html {
     .nav-top__menu-contacts {
         margin-right: 0;
     }
-    .content__block {
-        border-radius: 15px;
-    }
+
 }
 @media screen and (max-width: 576px) {
     .nav-top__menu-contacts {
