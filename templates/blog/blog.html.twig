@@ -17,12 +17,12 @@
 
                     <div class="nav-top__brand">
                         <div class="col-lg-auto col-md-auto">
-                            <img class="pointer" src="{{ asset('blog/img/logo_brand.png') }}" alt="brand" onclick="window.location.href='{{ path('home') }}'">
+                            <img class="pointer" src="{{ asset('img/logo_brand.svg') }}" alt="brand" onclick="window.location.href='{{ path('home') }}'">
                         </div>
                     </div>
 
                     <div class="nav-top__menu">
-                        <div class="col-lg-auto col-md-auto">
+                        <div class="col-lg-auto col-md-auto nav-top__upmenu">
                             <nav class="navbar navbar-expand-lg navbar-dark ">
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -76,7 +76,7 @@
                             <p >{{ article.text|striptags|truncate(160)}}</p>
                         </div>
                         <div class="content__block-button">
-                            <button onclick="window.location.href='{{ path('article',{slug: article.slug}) }}'"><b>Подробнее</b><img src="{{ asset('blog/img/arrow.png') }}" alt="button_logo"></button>
+                            <button onclick="window.location.href='{{ path('article',{slug: article.slug}) }}'"><b>Подробнее</b><img src="{{ asset('img/arrow.png') }}" alt="button_logo"></button>
                         </div>
                     </div>
                 </div>

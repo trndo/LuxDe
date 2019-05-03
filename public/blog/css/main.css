@@ -4,7 +4,7 @@ body {
 html {
   scroll-behavior: smooth;
 }
-.pointer{
+.pointer {
   cursor: pointer;
 }
 .nav-top__menu ul li, .nav-top a, .nav-top span {
@@ -37,7 +37,6 @@ html {
   border-radius: 50px;
   background: #ffffff;
 }
-
 .content__block {
   margin: 0 35px;
 }
@@ -47,7 +46,6 @@ html {
   background: #EF4747;
   border-radius: 50px;
 }
-
 .nav-top {
   padding-top: 21px;
 }
@@ -88,6 +86,14 @@ html {
 .content__block-button button img {
   margin-left: 20px;
 }
+.footer {
+  background: #252525;
+  padding: 10px 0;
+}
+.footer span {
+  color: #ffffff;
+  font-size: 18px;
+}
 .navigation-wrap{
   display: flex;
   justify-content:center;
@@ -103,7 +109,6 @@ html {
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
-
 .page-item.active .page-link{
   z-index: 1;
   color: #fff;
@@ -117,16 +122,6 @@ html {
   background-color: #af87ff;
   border-color: #af87ff;
 }
-
-.footer {
-  background: #252525;
-  padding: 10px 0;
-}
-.footer span {
-  color: #ffffff;
-  font-size: 18px;
-}
-
 
 @media screen and (max-width: 992px) {
   .nav-top__background {
@@ -182,8 +177,15 @@ html {
     padding: 0px;
     text-align: right;
     display: inline-block;
-    margin-right: -50px;
+    margin-right: -43px;
+    padding: 3px;
   }
+  .nav-top__upmenu {
+    margin: 0;
+    /* padding: 0; */
+    /* margin-right: 20px */
+  }
+  
   .navbar {
     padding: 5px 0px 5px 0px;
   }
@@ -230,17 +232,12 @@ html {
     margin-bottom: 5px;
     margin-left: 0px
   }
-  .nav-top__menu-contacts {
-    padding: 5px 5px
-  }
+  
   .nav-top__menu ul li {
     margin-left: auto
   }
   .nav-top__information div {
     margin-right: 0px
-  }
-  .navigation-wrap{
-    justify-content: center;
   }
 }
 

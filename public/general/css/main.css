@@ -2,20 +2,25 @@ header {
   display: fixed;
   background: linear-gradient(115.94deg, #31324D 5.68%, #9A5A98 97.96%);
 }
-html {
-  scroll-behavior: smooth;
-}
+
 button:active, button:focus, input:active, input:focus {
   outline: none;
 }
-
+html {
+  scroll-behavior: smooth;
+}
+.pointer {
+  cursor: pointer;
+}
 ul li {
   list-style-type: none;
 }
-.pointer{
-  cursor: pointer;
+.invalid{
+  border: solid 2px red;
 }
-
+.emailFast, #invEmail, #invName, #invPhone{
+  display: none;
+}
 .nav-top__menu ul li, .nav-top a, .nav-top span {
   list-style-type: none;
   color: #ffffff;
@@ -56,7 +61,7 @@ ul li {
   box-sizing: border-box;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   border-radius: 50px;
-  padding: 13.5px 30px;
+  padding: 14.5px 30px;
   font-size: 18px;
   font-weight: 800;
 }
@@ -65,12 +70,7 @@ ul li {
   padding-right: 0px;
   background: rgba(225, 99, 194, 0.42);
 }
-.invalid{
-  border: solid 2px red;
-}
-.emailFast, #invEmail, #invName, #invPhone{
-  display: none;
-}
+
 .description {
   background: linear-gradient(128.4deg, #31324D 4.99%, #E979D0 45.47%);
 }
@@ -316,6 +316,22 @@ ul li {
 .footer__down {
   margin-top: 60px;
   font-size: 18px;
+  margin-left: 340px
+}
+.footer__support {
+  display: block;
+  margin-top: 50px;
+  padding-left: 10px;
+  background: #D569C0;
+  border-radius: 50px;
+  margin-left: 200px;
+  color: #ffffff;
+  margin-bottom: 10px
+}
+.footer__support img{
+  background: #C05EAD;
+  padding: 10px;
+  border-radius: 50px
 }
 .footer .icons {
   margin-left: 90px;
@@ -324,6 +340,14 @@ ul li {
   display: none
 }
 @media screen and (max-width: 993px) {
+  .footer__support {
+    display: none
+  }
+  .footer__down {
+    margin-top: 60px;
+    font-size: 18px;
+    margin-left: 40px
+  }
   .nav-top__background {
     position: fixed;
     top: 0;
@@ -434,6 +458,19 @@ ul li {
   }
 }
 @media screen and (max-width: 576px) {
+  .nav-top__menu-contacts {
+    padding: 0px;
+    text-align: right;
+    display: inline-block;
+    margin-right: -45px;
+    padding: 3px;
+
+  }
+  .nav-top__upmenu {
+    margin: 0;
+    padding: 0;
+    margin-right: 10px
+  }
   .nav-top__menu ul li, .nav-top__menu button {
     margin-left: 0px;
   }
@@ -476,13 +513,7 @@ ul li {
   .nav-item div{
     display: none
   }
-  .nav-top__menu-contacts {
-    padding: 0px;
-    text-align: right;
-    display: inline-block;
-    margin-right: -50px;
-    padding: 5px 5px
-  }
+  
 
   .nav-top__menu-contacts span {
     font-size: 11px

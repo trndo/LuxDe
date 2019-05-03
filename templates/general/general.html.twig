@@ -17,11 +17,11 @@
 
                     <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
                         <div class="nav-top__brand">
-                            <img class="pointer" src="{{ asset('general/img/logo_brand.png') }}" alt="brand" onclick="window.location.href='{{ path('home') }}'">
+                            <img class="pointer" src="{{ asset('img/logo_brand.svg') }}" alt="brand" onclick="window.location.href='{{ path('home') }}'">
                         </div>
                     </div>
 
-                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto nav-top__upmenu">
                         <div class="nav-top__menu">
                             <nav class="navbar navbar-expand-lg navbar-dark ">
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -210,7 +210,7 @@
                         <p><b>Получить программу<br>курса</b></p>
                         <input id="fast" type="email" placeholder="E-mail"><br>
                         <small class="emailFast">*Проверте правильность email!</small>
-                        <button id="sendFast"><span>Отправить</span><img src="{{ asset('blog/img/arrow.png') }}" alt="logo"></button><br>
+                        <button id="sendFast"><span>Отправить</span><img src="{{ asset('img/arrow.png') }}" alt="logo"></button><br>
                         <div>*На почтовый адресс будет отправлена полная программа курса “Basic Web-design”</div>
                     </div>
                 </div>
@@ -253,11 +253,10 @@
                         </p>
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-5 col-12">
-                        <p>Как правильно рекламировать себя и выставлять работы на разных площадках - отдельная пара по
-                            самопродвижению </p>
+                        <p>“Домашние презентации” - презентации нацелены на повторение самостоятельно материала дома + домашнее задание </p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-12">
-                        <p>“Домашние презентации” - для повторения самостоятельно материала дома + домашнее задание</p>
+                        <p>Индивидуальное или групповые домашние задания построеные в игровой форме что даст не только эмоции но и качество знаний</p>
                     </div>
                 </div>
             </div>
@@ -265,15 +264,14 @@
             <div class="information__content-two">
                 <div class="row justify-content-center">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-12">
-                        <p>Конспекты лекций после каждой пары в доступе для группы
+                        <p>70% курса это чистая практика - мы не заговариваем вам зубы, мы учим
                         </p>
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-5 col-12">
-                        <p>Как правильно рекламировать себя и выставлять работы на разных площадках - отдельная пара по
-                            самопродвижению </p>
+                        <p>3 проекта + дипломная работа. Вам будет что показать работодателю</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-12">
-                        <p>“Домашние презентации” - для повторения самостоятельно материала дома + домашнее задание</p>
+                        <p>Как правильно рекламировать себя и выставлять работы на разных площадках - отдельная пара по самопродвижению</p>
                     </div>
                 </div>
             </div>
@@ -307,9 +305,9 @@
                             <li><img src="{{ asset('general/img/cord.png') }}" alt="cord">{{ settings.address }}</li>
                         </ul>
                         <ul class="icons d-flex">
-                            <li><img class="pointer" src="{{ asset('general/img/instagram.png') }}" alt="inst" onclick="window.location.href='{{ settings.instagram }}'"></li>
-                            <li><img class="pointer" src="{{ asset('general/img/facebook.png') }}" alt="facebook" onclick="window.location.href='{{ settings.facebook }}'"></li>
-                            <li><img class="pointer" src="{{ asset('general/img/twitter.png') }}" alt="twitter" onclick="window.location.href='{{ settings.telegram }}'"></li>
+                            <li><img class="pointer" src="{{ asset('general/img/instagram.svg') }}" alt="inst" onclick="window.location.href='{{ settings.instagram }}'"></li>
+                            <li><img class="pointer" src="{{ asset('general/img/facebook.svg') }}" alt="facebook" onclick="window.location.href='{{ settings.facebook }}'"></li>
+                            <li><img class="pointer" src="{{ asset('general/img/telegram.svg') }}" alt="twitter" onclick="window.location.href='{{ settings.telegram }}'"></li>
                         </ul>
                     </div>
                 </div>
@@ -325,17 +323,20 @@
                         <small id="invPhone">*Обязательное поле!</small>
                         <input id="full" type="email" placeholder="E-mail"><br>
                         <small id="invEmail">*Проверте правильность email!</small>
-                        <button id="send"><span>Отправить</span><img src="{{ asset('general/img/arrow.png') }}" alt="arrow"></button>
+                        <button id="send"><span>Отправить</span><img src="{{ asset('img/arrow.png') }}" alt="arrow"></button>
                     </div>
                 </div>
 
             </div>
 
             <div class="row justify-content-center">
-                <div class="footer__down">
-                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                <div class="col-lg-auto col-md-auto col-sm-auto col-auto">
+                    <div class="footer__down ">
                         <span>2019 LuxDe School</span>
                     </div>
+                </div>
+                <div class="col-lg-auto col-md-auto col-sm-auto col-auto text-center ">
+                    <span class="footer__support" onclick="window.location.href='https://octowice.com/'"><b>При поддержке</b> <img src="{{ asset('img/octologo.svg') }}" alt="logo"></span>
                 </div>
             </div>
 
