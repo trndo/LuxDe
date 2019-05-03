@@ -1,19 +1,8 @@
 header {
   background: linear-gradient(164.33deg, #31324D 3.61%, #E979D0 79.48%);
 }
-html {
-  scroll-behavior: smooth;
-}
-blockquote {
-  overflow: hidden;
-  padding-right: 1.5em;
-  padding-left: 1.5em;
-  margin-left: 0;
-  font-style: italic;
-  border-left: 5px solid #ccc;
-}
 .pointer{
-  cursor:pointer;
+  cursor: pointer;
 }
 .nav-top {
   padding-bottom: 6px;
@@ -126,15 +115,22 @@ blockquote {
   }
 }
 @media screen and (max-width: 576px) {
-  .content__image img {
-    margin-top: 50px
-  }
   .nav-top__menu-contacts {
     padding: 0px;
     text-align: right;
     display: inline-block;
-    margin-right: -50px;
+    margin-right: -45px;
+    padding: 3px;
   }
+  .nav-top__upmenu {
+    margin: 0;
+    padding: 0;
+    margin-right: 10px
+  }
+  .content__image img {
+    margin-top: 50px
+  }
+  
   .navbar {
     padding: 5px 0px 5px 0px;
   }
@@ -165,13 +161,7 @@ blockquote {
   .nav-top__menu ul li, .nav-top__menu button {
     margin-left: 0px;
   }
-  .nav-top__menu-contacts {
-    padding: 0px;
-    text-align: right;
-    display: inline-block;
-    margin-right: -50px;
-    padding: 5px 5px
-  }
+ 
   .nav-top__menu ul li {
     margin-top: 0px;
     margin-left: auto
