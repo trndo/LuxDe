@@ -21,6 +21,9 @@ ul li {
 .emailFast, #invEmail, #invName, #invPhone{
   display: none;
 }
+.nav-top__menu-contacts a:hover, a:active {
+    text-decoration: none
+}
 .nav-top__menu ul li, .nav-top a, .nav-top span {
   list-style-type: none;
   color: #ffffff;
@@ -61,7 +64,7 @@ ul li {
   box-sizing: border-box;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   border-radius: 50px;
-  padding: 14.5px 30px;
+  padding: 13.7px 30px;
   font-size: 18px;
   font-weight: 800;
 }
@@ -469,7 +472,7 @@ ul li {
   .nav-top__upmenu {
     margin: 0;
     padding: 0;
-    margin-right: 10px
+    margin-right: 10px;
   }
   .nav-top__menu ul li, .nav-top__menu button {
     margin-left: 0px;

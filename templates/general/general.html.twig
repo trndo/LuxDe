@@ -27,8 +27,7 @@
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                     aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon">
-                                    </span>
+                                    <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav mr-auto">
@@ -40,8 +39,8 @@
                                         </li>
                                     </ul>
                                     <div class="nav-top__menu-contacts">
-
-                                        <span>{{ settings.email }}<br>{{ settings.phone }}</span>
+                                        <span>{{ settings.email }}</span><br>
+                                        <a href="tel:{{ settings.phone }}">{{ settings.phone }}</a>
                                     </div>
                                 </div>
                             </nav>
@@ -336,7 +335,7 @@
                     </div>
                 </div>
                 <div class="col-lg-auto col-md-auto col-sm-auto col-auto text-center ">
-                    <span class="footer__support" onclick="window.location.href='https://octowice.com/'"><b>При поддержке</b> <img src="{{ asset('img/octologo.svg') }}" alt="logo"></span>
+                    <span class="footer__support" onclick="window.location.href='https://octowice.com/'"><b>При поддержке</b> <img class="pointer" src="{{ asset('img/octologo.svg') }}" alt="logo"></span>
                 </div>
             </div>
 

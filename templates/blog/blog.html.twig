@@ -21,8 +21,8 @@
                         </div>
                     </div>
 
-                    <div class="nav-top__menu">
-                        <div class="col-lg-auto col-md-auto nav-top__upmenu">
+                    <div class="col-lg-auto col-md-auto col-sm-auto col-auto nav-top__upmenu">
+                        <div class="nav-top__menu">
                             <nav class="navbar navbar-expand-lg navbar-dark ">
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -39,7 +39,8 @@
                                         </li>
                                     </ul>
                                     <div class="nav-top__menu-contacts">
-                                        <span>{{ settings.email }}<br>{{ settings.phone }}</span>
+                                        <span>{{ settings.email }}</span><br>
+                                        <a href="tel:{{ settings.phone }}">{{ settings.phone }}</a>
                                     </div>
                                 </div>
                             </nav>
