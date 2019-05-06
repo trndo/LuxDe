@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the "LuxDe School" package.
+ * (c) Gopkalo Vitaliy <trndogv@gmail.com>
+ */
 
 namespace App\Form;
-
 
 use App\DTO\EditDTO;
 use Symfony\Component\Form\AbstractType;
@@ -16,17 +21,17 @@ class EditType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name',TextType::class,[
-                'label' => false,
-                'required' => false
-            ])
-            ->add('text',TextareaType::class,[
+        $builder->add('name', TextType::class, [
                 'label' => false,
                 'required' => false,
             ])
-            ->add('file',FileType::class,[
+            ->add('text', TextareaType::class, [
                 'label' => false,
-                'required' => false
+                'required' => false,
+            ])
+            ->add('file', FileType::class, [
+                'label' => false,
+                'required' => false,
             ]);
     }
 
@@ -36,5 +41,4 @@ class EditType extends AbstractType
             'data_class' => EditDTO::class,
         ]);
     }
-
 }

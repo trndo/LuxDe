@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the "LuxDe School" package.
+ * (c) Gopkalo Vitaliy <trndogv@gmail.com>
+ */
 
 namespace App\Controller\Admin;
-
 
 use App\Entity\Settings;
 use App\Form\SettingsType;
@@ -21,23 +26,22 @@ class SettingsController extends AbstractController
     /**
      * @Route("/admin/settings", name="settings")
      */
-    public function editSettings(Request $request,EntityManagerInterface $em, SettingsRepository $repository)
+    public function editSettings(Request $request, EntityManagerInterface $em, SettingsRepository $repository)
     {
-        $settings = $repository->findOneBy([],['id' => 'DESC']);
-        $form = $this->createForm(SettingsType::class,$settings);
+        $settings = $repository->findOneBy([], ['id' => 'DESC']);
+        $form = $this->createForm(SettingsType::class, $settings);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
 
+        if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
 
             $em->persist($data);
             $em->flush();
-
         }
 
-        return $this->render('admin/settings.html.twig',[
-            'form' => $form->createView()
+        return $this->render('admin/settings.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }

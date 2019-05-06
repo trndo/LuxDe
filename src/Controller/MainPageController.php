@@ -1,9 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the "LuxDe School" package.
+ * (c) Gopkalo Vitaliy <trndogv@gmail.com>
+ */
+
 namespace App\Controller;
 
 use App\Entity\Mail;
-use App\Entity\Settings;
 use App\Repository\SettingsRepository;
 use App\Service\MailSender;
 use Doctrine\ORM\EntityManagerInterface;
@@ -19,18 +25,17 @@ class MainPageController extends AbstractController
      */
     public function home(SettingsRepository $repository)
     {
+        $settings = $repository->findOneBy([], ['id' => 'DESC']);
 
-        $settings = $repository->findOneBy([],['id' => 'DESC']);
-        return $this->render('general/general.html.twig',[
-                'settings' => $settings
+        return $this->render('general/general.html.twig', [
+                'settings' => $settings,
         ]);
-
     }
 
     /**
      * @Route("/send", name="send")
      */
-    public function send(Request $request,EntityManagerInterface $em,MailSender $mailSender)
+    public function send(Request $request, EntityManagerInterface $em, MailSender $mailSender)
     {
         $mail = new Mail();
         $name = $request->request->get('name');
@@ -53,20 +58,20 @@ class MainPageController extends AbstractController
         }
 
         return new JsonResponse([
-            'error' => 'Invalid data'
-        ],500);
+            'error' => 'Invalid data',
+        ], 500);
     }
 
     /**
      * @Route("/sendFast", name="sendFast")
      */
-    public function sendFast(MailSender $mailSender,Request $request)
+    public function sendFast(MailSender $mailSender, Request $request)
     {
         $email = $request->request->get('email');
         $mailSender->sendFastMessage($email);
 
         return new JsonResponse([
-            'mail' => $email
+            'mail' => $email,
         ]);
     }
 }

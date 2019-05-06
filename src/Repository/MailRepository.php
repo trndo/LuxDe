@@ -1,5 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the "LuxDe School" package.
+ * (c) Gopkalo Vitaliy <trndogv@gmail.com>
+ */
+
 namespace App\Repository;
 
 use App\Entity\Mail;
@@ -7,8 +14,8 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Mail|null find($id, $lockMode = null, $lockVersion = null)
- * @method Mail|null findOneBy(array $criteria, array $orderBy = null)
+ * @method null|Mail find($id, $lockMode = null, $lockVersion = null)
+ * @method null|Mail findOneBy(array $criteria, array $orderBy = null)
  * @method Mail[]    findAll()
  * @method Mail[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
@@ -18,33 +25,4 @@ class MailRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Mail::class);
     }
-
-    // /**
-    //  * @return Mail[] Returns an array of Mail objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Mail
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

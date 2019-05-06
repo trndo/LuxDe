@@ -1,15 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the "LuxDe School" package.
+ * (c) Gopkalo Vitaliy <trndogv@gmail.com>
+ */
 
 namespace App\Service;
-
 
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FileUploader
 {
-
     private $uploadDir;
 
     public function __construct($uploadDir)
@@ -19,8 +23,10 @@ class FileUploader
 
     /**
      * @param UploadedFile $uploadedFile
-     * @return string
+     *
      * @throws FileException
+     *
+     * @return string
      */
     public function upload(UploadedFile $uploadedFile)
     {
@@ -31,18 +37,16 @@ class FileUploader
                 $this->uploadDir,
                 $originName
             );
-        }catch(FileException $exception){
-
+        } catch (FileException $exception) {
             return $exception->getMessage();
         }
 
         return $originName;
-
     }
 
     private function hash(string $imageName)
     {
-        return md5(uniqid($imageName));
+        return \md5(\uniqid($imageName));
     }
 
     /**
@@ -52,6 +56,4 @@ class FileUploader
     {
         return $this->uploadDir;
     }
-
-
 }

@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the "LuxDe School" package.
+ * (c) Gopkalo Vitaliy <trndogv@gmail.com>
+ */
 
 namespace App\Controller\Admin;
-
 
 use App\Repository\ArticleRepository;
 use App\Repository\MailRepository;
@@ -20,9 +25,9 @@ class ShowAdminController extends AbstractController
      */
     public function showMails(MailRepository $repository)
     {
-        $messages = $repository->findOneBy([],['id' => 'DESC']);
+        $messages = $repository->findOneBy([], ['id' => 'DESC']);
 
-        return $this->render('admin/journal.html.twig',[
+        return $this->render('admin/journal.html.twig', [
             'messages' => $messages,
         ]);
     }
@@ -32,11 +37,10 @@ class ShowAdminController extends AbstractController
      */
     public function showArticles(ArticleRepository $repository)
     {
-        $article = $repository->findBy([],['id' => 'DESC']);
+        $article = $repository->findBy([], ['id' => 'DESC']);
 
-        return $this->render('admin/article.html.twig',[
+        return $this->render('admin/article.html.twig', [
             'articles' => $article,
         ]);
     }
-
 }

@@ -1,5 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the "LuxDe School" package.
+ * (c) Gopkalo Vitaliy <trndogv@gmail.com>
+ */
+
 namespace App\Controller;
 
 use App\Entity\Article;
@@ -15,31 +22,32 @@ class ArticleController extends AbstractController
     /**
      * @Route("/blog/{slug}", name="article")
      */
-    public function showArticle(Article $article,SettingsRepository $repository)
+    public function showArticle(Article $article, SettingsRepository $repository)
     {
-        $settings = $repository->findOneBy([],['id' => 'DESC']);
-        return $this->render('article/article.html.twig',[
+        $settings = $repository->findOneBy([], ['id' => 'DESC']);
+
+        return $this->render('article/article.html.twig', [
             'article' => $article,
-            'settings' => $settings
+            'settings' => $settings,
         ]);
     }
 
     /**
      * @Route("/blog", name="blog")
      */
-    public function showAllArticles(ArticleRepository $articleRepository,PaginatorInterface $paginator,Request $request,SettingsRepository $settingsRepository)
+    public function showAllArticles(ArticleRepository $articleRepository, PaginatorInterface $paginator, Request $request, SettingsRepository $settingsRepository)
     {
-        $settings = $settingsRepository->findOneBy([],['id' => 'DESC']);
-        $query = $articleRepository->findBy([],['id' => 'DESC']);
+        $settings = $settingsRepository->findOneBy([], ['id' => 'DESC']);
+        $query = $articleRepository->findBy([], ['id' => 'DESC']);
         $articles = $paginator->paginate(
             $query,
-            $request->query->getInt('page',1),
+            $request->query->getInt('page', 1),
             1
         );
 
-        return $this->render('blog/blog.html.twig',[
+        return $this->render('blog/blog.html.twig', [
             'articles' => $articles,
-            'settings' => $settings
+            'settings' => $settings,
         ]);
     }
 }

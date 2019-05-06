@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the "LuxDe School" package.
+ * (c) Gopkalo Vitaliy <trndogv@gmail.com>
+ */
 
 namespace App\DTO;
-
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -15,7 +20,7 @@ class EditDTO
     /**
      * @return mixed
      */
-    public function getName():string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -23,6 +28,7 @@ class EditDTO
 
     /**
      * @param $name
+     *
      * @return EditDTO
      */
     public function setName($name): self
@@ -43,6 +49,7 @@ class EditDTO
 
     /**
      * @param $text
+     *
      * @return EditDTO
      */
     public function setText($text): self
@@ -63,6 +70,7 @@ class EditDTO
 
     /**
      * @param $file
+     *
      * @return EditDTO
      */
     public function setFile(UploadedFile $file): self

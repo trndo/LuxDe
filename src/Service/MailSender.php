@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the "LuxDe School" package.
+ * (c) Gopkalo Vitaliy <trndogv@gmail.com>
+ */
 
 namespace App\Service;
-
 
 use App\Entity\Mail;
 use Twig\Environment;
@@ -30,7 +35,7 @@ class MailSender
             ->setFrom('luxdeinf@gmail.com')
             ->setTo('luxdeinf@gmail.com')
             ->setBody(
-                $data->getName().'<br>'.$data->getEmail().'<br>'.$data->getPhoneNumber(),
+                $data->getName() . '<br>' . $data->getEmail() . '<br>' . $data->getPhoneNumber(),
                 'text/html'
             );
         $messToCustomer = (new \Swift_Message('Lux-De School'))
@@ -39,9 +44,9 @@ class MailSender
             ->setBody(
                 $this->environment->render(
                     '_mail.html.twig'
-                )
-                ,
-                'text/html');
+                ),
+                'text/html'
+            );
         $this->mailer->send($messToMe);
         $this->mailer->send($messToCustomer);
     }
@@ -61,11 +66,10 @@ class MailSender
             ->setBody(
                 $this->environment->render(
                     '_mail.html.twig'
-                )
-                ,
-                'text/html');
+                ),
+                'text/html'
+            );
         $this->mailer->send($message1);
         $this->mailer->send($message2);
-
     }
 }

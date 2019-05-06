@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the "LuxDe School" package.
+ * (c) Gopkalo Vitaliy <trndogv@gmail.com>
+ */
 
 namespace App\Form;
-
 
 use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
@@ -17,15 +22,15 @@ class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name',TextType::class)
-            ->add('text',TextareaType::class,[
-                'required' => false
+        $builder->add('name', TextType::class)
+            ->add('text', TextareaType::class, [
+                'required' => false,
             ])
-            ->add('imagePath',FileType::class)
-            ->add('save',SubmitType::class,[
+            ->add('imagePath', FileType::class)
+            ->add('save', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-primary'
-                    ]
+                    'class' => 'btn btn-primary',
+                    ],
             ]);
     }
 
@@ -33,7 +38,7 @@ class ArticleType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Article::class
+            'data_class' => Article::class,
         ]);
     }
 }
